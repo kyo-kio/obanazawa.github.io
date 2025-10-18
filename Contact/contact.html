@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>お問い合わせ - 花笠高原スキー場</title>
+  <link rel="stylesheet" href="contact.css" />
+  <style>
+    /* CSS Variables */
+    :root {
+      /* Colors - HSL format */
+      --primary: 142 76% 36%;
+      --primary-glow: 142 68% 45%;
+      --purple: 258 90% 66%;
+      --purple-deep: 258 90% 50%;
+      --sky-light: 197 71% 73%;
+      --mountain-light: 142 33% 82%;
+      --foreground: 222 84% 5%;
+      --background: 0 0% 100%;
+      --muted: 210 40% 96%;
+      --muted-foreground: 215 16% 47%;
+      --accent: 197 71% 73%;
+      --accent-foreground: 222 84% 5%;
+      --border: 214 32% 91%;
+
+      /* Gradients */
+      --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+      --gradient-purple: linear-gradient(135deg, hsl(var(--purple)), hsl(var(--purple-deep)));
+      --gradient-sky: linear-gradient(180deg, hsl(var(--sky-light)), hsl(var(--mountain-light)));
+
+      /* Shadows */
+      --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+      --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
+      --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+      /* Transitions */
+      --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: hsl(var(--foreground));
+      background: hsl(var(--background));
+    }
+
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 120px auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Main Content */
+    .contact-main {
+      margin-top: 80px;
+      background: hsl(var(--background));
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding: 2rem 0;
+      background: var(--gradient-sky);
+      color: white;
+      border-radius: 1rem;
+      margin-top: 3rem;
+    }
+
+    .page-title {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.1em;
+    }
+
+    .page-subtitle {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 768px) {
+      .page-title {
+        font-size: 2rem;
+      }
+      .page-subtitle {
+        font-size: 1rem;
+      }
+    }
+
+    /* Contact Content */
+    .contact-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    @media (min-width: 1024px) {
+      .contact-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+      }
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: bold;
+      color: hsl(var(--foreground));
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid hsl(var(--primary));
+    }
+
+    /* Contact Info */
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .contact-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-card);
+      border: 1px solid hsl(var(--border));
+      transition: var(--transition-smooth);
+    }
+
+    .contact-card:hover {
+      box-shadow: var(--shadow-elegant);
+      transform: translateY(-2px);
+    }
+
+    .contact-card-title {
+      font-size: 1.125rem;
+      font-weight: bold;
+      color: hsl(var(--primary));
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid hsl(var(--border));
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .facility-name {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: hsl(var(--foreground));
+    }
+
+    .address {
+      color: hsl(var(--muted-foreground));
+      font-size: 0.875rem;
+    }
+
+    .phone {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-weight: 500;
+    }
+
+    .phone a {
+      color: hsl(var(--primary));
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    .phone a:hover {
+      color: hsl(var(--primary-glow));
+      text-decoration: underline;
+    }
+
+    .label {
+      font-weight: 600;
+      color: hsl(var(--foreground));
+    }
+
+    .separator {
+      margin: 0 0.5rem;
+      color: hsl(var(--muted-foreground));
+    }
+
+    .hours {
+      color: hsl(var(--muted-foreground));
+      font-size: 0.875rem;
+      font-style: italic;
+    }
+
+    /* Contact Form */
+    .contact-form-section {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: var(--shadow-card);
+      border: 1px solid hsl(var(--border));
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-label {
+      font-weight: 600;
+      color: hsl(var(--foreground));
+      margin-bottom: 0.5rem;
+      font-size: 0.875rem;
+    }
+
+    .required {
+      color: #e53e3e;
+      font-weight: bold;
+    }
+
+    .form-input,
+    .form-textarea {
+      padding: 0.75rem;
+      border: 2px solid hsl(var(--border));
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      transition: var(--transition-smooth);
+      background: white;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: hsl(var(--primary));
+      box-shadow: 0 0 0 3px hsl(var(--primary) / 0.1);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-submit {
+      background: var(--gradient-primary);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      font-size: 1.125rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      box-shadow: var(--shadow-elegant);
+    }
+
+    .form-submit:hover {
+      background: hsl(var(--primary-glow));
+      box-shadow: var(--shadow-glow);
+      transform: translateY(-2px);
+    }
+
+    .form-submit:active {
+      transform: translateY(0);
+    }
+
+    /* Form validation styles */
+    .form-input.error,
+    .form-textarea.error {
+      border-color: #e53e3e;
+      box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
+    }
+
+    .error-message {
+      color: #e53e3e;
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+    }
+
+    /* Success message */
+    .success-message {
+      background: #f8f8f8;
+      border: 1px solid hsl(var(--primary));
+      color: hsl(var(--foreground));
+      padding: 1rem;
+      border-radius: 0.5rem;
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .contact-main {
+        margin-top: 70px;
+        padding: 1rem 0 2rem;
+      }
+      
+      .contact-card {
+        padding: 1rem;
+      }
+      
+      .contact-form-section {
+        padding: 1.5rem;
+      }
+      
+      .phone {
+        flex-wrap: wrap;
+      }
+      
+      .separator {
+        margin: 0 0.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  
+<!-- Header -->
+<header id="header" class="header" role="banner">
+  <div class="header-container">
+    <div class="header-content">
+      <!-- Logo -->
+      <div class="logo">AKKO</div>
+
+      <!-- Navigation Menu -->
+      <nav class="nav" aria-label="main">
+        <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/home/ホーム.html" class="nav-item" data-page="home">
+          <span class="nav-icon-box">
+            <!-- 黒アイコンのみ -->
+            <img class="nav-icon icon--dark" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン１ 黒.svg" width="20" height="20" alt="" aria-hidden="true">
+          </span>
+          <span>ホーム</span>
+        </a>
+
+        <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/コース　料金/courses-pricing.html" class="nav-item" data-page="courses">
+          <span class="nav-icon-box">
+            <img class="nav-icon icon--dark" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン２　黒.svg" width="20" height="20" alt="" aria-hidden="true">
+          </span>
+          <span>コース/料金</span>
+        </a>
+
+        <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/Access/access.html" class="nav-item" data-page="access">
+          <span class="nav-icon-box">
+            <img class="nav-icon icon--dark" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン３　黒.svg" width="20" height="20" alt="" aria-hidden="true">
+          </span>
+          <span>レンタル/アクセス</span>
+        </a>
+
+        <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/News/news.html" class="nav-item" data-page="news">
+          <span class="nav-icon-box">
+            <img class="nav-icon icon--dark" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン４　黒.svg" width="20" height="20" alt="" aria-hidden="true">
+          </span>
+          <span>ニュース</span>
+        </a>
+
+            <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/フード/food.html" class="nav-item" data-page="food">
+    <span class="nav-icon-box">
+      <img class="nav-icon icon--light" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン６　白.svg" width="20" height="20" alt="" aria-hidden="true">
+      <img class="nav-icon icon--dark"  src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン６　黒.svg" width="20" height="20" alt="" aria-hidden="true">
+    </span>
+    <span>フード</span>
+  </a>
+
+    <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/ご宿泊/hotel.html" class="nav-item" data-page="hotel">
+    <span class="nav-icon-box">
+      <img class="nav-icon icon--light" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン７　白.svg" width="20" height="20" alt="" aria-hidden="true">
+      <img class="nav-icon icon--dark"  src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン7　黒.svg" width="20" height="20" alt="" aria-hidden="true">
+    </span>
+    <span>ご宿泊</span>
+  </a>
+
+        <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/Contact/contact.html" class="nav-item" data-page="contact">
+          <span class="nav-icon-box">
+            <img class="nav-icon icon--dark" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン５　黒.svg" width="20" height="20" alt="" aria-hidden="true">
+          </span>
+          <span>お問い合わせ</span>
+        </a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <!-- Language -->
+      <div class="lang-dropdown" id="langDropdown">
+        <button class="btn btn-outline lang-btn" id="langBtn"
+                aria-haspopup="listbox" aria-expanded="false">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M5 8l6 6 6-6"/>
+          </svg>
+          <span class="lang-current" data-lang="ja">日本語</span>
+        </button>
+
+        <!-- ボタン直下に出るメニュー（幅=ボタン幅） -->
+        <ul class="lang-menu" id="langMenu" role="listbox" aria-label="Language">
+          <li role="option" aria-selected="true">
+            <a href="?lang=ja" data-lang="ja" class="lang-item is-active">日本語</a>
+          </li>
+          <li role="option" aria-selected="false">
+            <a href="?lang=en" data-lang="en" class="lang-item">English</a>
+          </li>
+          <li role="option" aria-selected="false">
+            <a href="?lang=zh" data-lang="zh" class="lang-item">中文</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 営業・運行状況（常時緑・URL必須のためリンク化） -->
+      <a class="btn btn-primary"
+         href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/営業・運行状況/situation.html">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/>
+        </svg>
+        営業・運行状況
+      </a>
+
+      <button class="hamburger-btn" id="hamburgerBtn" aria-controls="mobileMenu" aria-expanded="false" aria-label="メニュー">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile full-screen menu -->
+<nav id="mobileMenu" class="mobile-menu" aria-hidden="true">
+  <button class="mobile-menu__close" id="mobileMenuClose" aria-label="閉じる">
+    <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+      <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <ul class="mobile-menu__list" role="menu" aria-label="Main">
+    <li role="none">
+      <a role="menuitem"
+         href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/home/ホーム.html"
+         class="mobile-item">
+        <img class="mobile-item__icon" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン１　白.svg" alt="" aria-hidden="true">
+        <span>ホーム</span>
+      </a>
+    </li>
+
+    <li role="none">
+      <a role="menuitem"
+         href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/コース　料金/courses-pricing.html"
+         class="mobile-item">
+        <img class="mobile-item__icon" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン２　白.svg" alt="" aria-hidden="true">
+        <span>コース/料金</span>
+      </a>
+    </li>
+
+    <li role="none">
+      <a role="menuitem"
+         href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/Access/access.html"
+         class="mobile-item">
+        <img class="mobile-item__icon" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン３　白.svg" alt="" aria-hidden="true">
+        <span>レンタル/アクセス</span>
+      </a>
+    </li>
+
+    <li role="none">
+      <a role="menuitem"
+         href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/News/news.html"
+         class="mobile-item">
+        <img class="mobile-item__icon" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン４　白.svg" alt="" aria-hidden="true">
+        <span>ニュース</span>
+      </a>
+    </li>
+
+    
+    <li role="none">
+      <a role="menuitem"
+         href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/フード/food.html"
+         class="mobile-item">
+        <img class="mobile-item__icon" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン６　白.svg" alt="" aria-hidden="true">
+        <span>フード</span>
+      </a>
+    </li>
+    
+    <li role="none">
+      <a role="menuitem"
+         href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/ご宿泊/hotel.html"
+         class="mobile-item">
+        <img class="mobile-item__icon" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン７　白.svg" alt="" aria-hidden="true">
+        <span>ご宿泊</span>
+      </a>
+    </li>
+
+
+    <li role="none">
+      <a role="menuitem"
+         href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/Contact/contact.html"
+         class="mobile-item">
+        <img class="mobile-item__icon" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン５白.svg" alt="" aria-hidden="true">
+        <span>お問い合わせ</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+  <!-- Main Content -->
+  <main class="contact-main">
+
+
+    <section class="page-hero">
+      <div>
+        <h1 class="page-title">お問い合わせ</h1>
+        <p class="page-subtitle">CONTACT US</p>
+      </div>
+    </section>
+
+    
+    <div class="container">
+      <div class="contact-content">
+        <div class="contact-info">
+          <h2 class="section-title">連絡先情報</h2>
+          
+          <div class="contact-card">
+            <h3 class="contact-card-title">【スキー場直通】</h3>
+            <div class="contact-details">
+              <p class="facility-name">花笠高原スキー場</p>
+              <p class="address">〒999-4443 山形県長花市小大字858</p>
+              <p class="phone">
+                <span class="label">TEL：</span>
+                <a href="tel:0237-28-3939">0237-28-3939</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <h3 class="contact-card-title">【運営管理】</h3>
+            <div class="contact-details">
+              <p class="facility-name">尾花沢市ふるさと振興公社</p>
+              <p class="address">〒999-4441 山形県尾花沢市大字延沢3636-14</p>
+              <p class="phone">
+                <span class="label">TEL：</span>
+                <a href="tel:0237-23-3261">0237-23-3261</a>
+                <span class="separator">/</span>
+                <span class="label">FAX：</span>
+                <span>0237-23-3263</span>
+              </p>
+              <p class="hours">受付時間：8:30-17:00</p>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <h3 class="contact-card-title">【観光案内】</h3>
+            <div class="contact-details">
+              <p class="facility-name">尾花沢市商工観光課</p>
+              <p class="address">〒999-4292 山形県尾花沢市若葉町一丁目2番3号</p>
+              <p class="phone">
+                <span class="label">TEL：</span>
+                <a href="tel:0237-22-1111">0237-22-1111</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-section">
+          <h2 class="section-title">お問い合わせフォーム</h2>
+          <form id="contactForm" class="contact-form">
+            <div class="form-group">
+              <label for="name" class="form-label">お名前 <span class="required">*</span></label>
+              <input type="text" id="name" name="name" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">メールアドレス <span class="required">*</span></label>
+              <input type="email" id="email" name="email" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+              <label for="message" class="form-label">メッセージ <span class="required">*</span></label>
+              <textarea id="message" name="message" class="form-textarea" rows="6" required></textarea>
+            </div>
+
+            <button type="submit" class="form-submit">送信する</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+<footer class="footer">
+  <!-- ① SNS一覧ボタン -->
+  <div class="footer-sns">
+    <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/SNS一覧/SNS.html" class="sns-btn">SNS一覧</a>
+  </div>
+
+  <!-- ② プライバシーポリシー / 利用規約 -->
+  <div class="footer-links">
+    <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/利用規約/terms.html">利用規約</a> |
+    <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/プライバシーポリシー/privacy-policy.html">プライバシーポリシー</a>
+  </div>
+
+  <!-- ③ コピーライト -->
+  <div class="footer-copy">
+    <p>© 2025 尾花沢市 All Rights Reserved.</p>
+  </div>
+</footer>
+
+  <script src="contact.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+/* ---- 基本レイアウト ---- */
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+  --muted: #666666;
+  --border: #e5e7eb;
+  --accent: #111111;
+  --container: min(100%, 960px);
+  --radius: 16px;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-6: 3rem;
+  --lh: 1.9;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: var(--bg);
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN",
+               "Yu Gothic", "YuGothic", "Noto Sans JP", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: var(--lh);
+}
+
+.container {
+  width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--space-2);
+}
+
+/* ---- ヘッダー ---- */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: #fafafa;
+}
+
+.page-title {
+  margin: 0;
+  padding: var(--space-4) 0 var(--space-2);
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  letter-spacing: 0.02em;
+}
+
+.page-lead {
+  margin: 0 0 var(--space-3);
+  color: var(--muted);
+}
+
+/* ---- 目次 ---- */
+.toc {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  background: #fff;
+  margin: var(--space-4) 0;
+}
+
+.toc > strong {
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.toc ol {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.toc a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(17,17,17,.3);
+}
+.toc a:hover { opacity: .8; }
+
+/* ---- 本文 ---- */
+.tos {
+  padding-bottom: var(--space-6);
+}
+
+.tos-section + .tos-section {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+}
+
+.tos-section h2 {
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  margin: 0 0 var(--space-1);
+}
+
+.tos-section p {
+  margin: 0 0 var(--space-2);
+}
+
+.tos-section ul,
+.tos-section ol {
+  margin: 0 0 var(--space-2);
+  padding-left: 1.25rem;
+}
+
+.tos-section li + li {
+  margin-top: .25rem;
+}
+
+.the-end {
+  margin-top: var(--space-2);
+  font-weight: 600;
+}
+
+/* ---- 戻るリンク ---- */
+.back-to-top {
+  margin-top: var(--space-6);
+}
+.back-to-top a {
+  text-decoration: none;
+  color: var(--accent);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: .4rem .9rem;
+}
+.back-to-top a:hover { background: #f8f8f8; }
+
+/* ---- フッター ---- */
+.site-footer {
+  border-top: 1px solid var(--border);
+  background: #fafafa;
+  padding: var(--space-3) 0;
+}
+.site-footer .small {
+  font-size: .9rem;
+  color: var(--muted);
+}
+
+/* ---- プリント最適化 ---- */
+@media print {
+  .toc, .back-to-top, .site-header, .site-footer { display: none !important; }
+  body { color: #000; }
+  .container { width: 100%; padding: 0; }
+  .tos-section { page-break-inside: avoid; }
+}
+
+html, body{
+  -ms-overflow-style: none;   /* IE/旧Edge */
+  scrollbar-width: none;      /* Firefox */
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  display: none;              /* Chrome/Safari/新Edge */
+}
+
+/* 任意：特定の要素だけ隠したい時用 */
+.scrollbar-none{
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar{
+  display: none;
+}

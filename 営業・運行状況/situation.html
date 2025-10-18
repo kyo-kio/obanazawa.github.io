@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>営業・運行状況 - 雪山スキー場</title>
+    <link rel="stylesheet" href="situation.css">
+</head>
+<body>
+
+ <!-- Header (from Home page) -->
+<!-- Header -->
+<header id="header" class="header" role="banner">
+  <div class="header-container">
+    <div class="header-content">
+      <!-- Logo -->
+      <div class="logo">AKKO</div>
+
+      <!-- Navigation Menu -->
+      <nav class="nav" aria-label="main">
+        <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/home/ホーム.html" class="nav-item" data-page="home">
+          <span class="nav-icon-box">
+            <!-- 黒アイコンのみ -->
+            <img class="nav-icon icon--dark" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン１ 黒.svg" width="20" height="20" alt="" aria-hidden="true">
+          </span>
+          <span>ホーム</span>
+        </a>
+
+        <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/コース　料金/courses-pricing.html" class="nav-item" data-page="courses">
+          <span class="nav-icon-box">
+            <img class="nav-icon icon--dark" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン２　黒.svg" width="20" height="20" alt="" aria-hidden="true">
+          </span>
+          <span>コース/料金</span>
+        </a>
+
+        <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/Access/access.html" class="nav-item" data-page="access">
+          <span class="nav-icon-box">
+            <img class="nav-icon icon--dark" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン３　黒.svg" width="20" height="20" alt="" aria-hidden="true">
+          </span>
+          <span>レンタル/アクセス</span>
+        </a>
+
+        <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/News/news.html" class="nav-item" data-page="news">
+          <span class="nav-icon-box">
+            <img class="nav-icon icon--dark" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン４　黒.svg" width="20" height="20" alt="" aria-hidden="true">
+          </span>
+          <span>ニュース</span>
+        </a>
+
+            <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/フード/food.html" class="nav-item" data-page="food">
+    <span class="nav-icon-box">
+      <img class="nav-icon icon--light" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン６　白.svg" width="20" height="20" alt="" aria-hidden="true">
+      <img class="nav-icon icon--dark"  src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン６　黒.svg" width="20" height="20" alt="" aria-hidden="true">
+    </span>
+    <span>フード</span>
+  </a>
+
+    <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/ご宿泊/hotel.html" class="nav-item" data-page="hotel">
+    <span class="nav-icon-box">
+      <img class="nav-icon icon--light" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン７　白.svg" width="20" height="20" alt="" aria-hidden="true">
+      <img class="nav-icon icon--dark"  src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン7　黒.svg" width="20" height="20" alt="" aria-hidden="true">
+    </span>
+    <span>ご宿泊</span>
+  </a>
+
+        <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/Contact/contact.html" class="nav-item" data-page="contact">
+          <span class="nav-icon-box">
+            <img class="nav-icon icon--dark" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン５　黒.svg" width="20" height="20" alt="" aria-hidden="true">
+          </span>
+          <span>お問い合わせ</span>
+        </a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <!-- Language -->
+      <div class="lang-dropdown" id="langDropdown">
+        <button class="btn btn-outline lang-btn" id="langBtn"
+                aria-haspopup="listbox" aria-expanded="false">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M5 8l6 6 6-6"/>
+          </svg>
+          <span class="lang-current" data-lang="ja">日本語</span>
+        </button>
+
+        <!-- ボタン直下に出るメニュー（幅=ボタン幅） -->
+        <ul class="lang-menu" id="langMenu" role="listbox" aria-label="Language">
+          <li role="option" aria-selected="true">
+            <a href="?lang=ja" data-lang="ja" class="lang-item is-active">日本語</a>
+          </li>
+          <li role="option" aria-selected="false">
+            <a href="?lang=en" data-lang="en" class="lang-item">English</a>
+          </li>
+          <li role="option" aria-selected="false">
+            <a href="?lang=zh" data-lang="zh" class="lang-item">中文</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 営業・運行状況（常時緑・URL必須のためリンク化） -->
+      <a class="btn btn-primary"
+         href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/営業・運行状況/situation.html">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/>
+        </svg>
+        営業・運行状況
+      </a>
+
+      <button class="hamburger-btn" id="hamburgerBtn" aria-controls="mobileMenu" aria-expanded="false" aria-label="メニュー">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile full-screen menu -->
+<nav id="mobileMenu" class="mobile-menu" aria-hidden="true">
+  <button class="mobile-menu__close" id="mobileMenuClose" aria-label="閉じる">
+    <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+      <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <ul class="mobile-menu__list" role="menu" aria-label="Main">
+    <li role="none">
+      <a role="menuitem"
+         href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/home/ホーム.html"
+         class="mobile-item">
+        <img class="mobile-item__icon" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン１　白.svg" alt="" aria-hidden="true">
+        <span>ホーム</span>
+      </a>
+    </li>
+
+    <li role="none">
+      <a role="menuitem"
+         href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/コース　料金/courses-pricing.html"
+         class="mobile-item">
+        <img class="mobile-item__icon" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン２　白.svg" alt="" aria-hidden="true">
+        <span>コース/料金</span>
+      </a>
+    </li>
+
+    <li role="none">
+      <a role="menuitem"
+         href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/Access/access.html"
+         class="mobile-item">
+        <img class="mobile-item__icon" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン３　白.svg" alt="" aria-hidden="true">
+        <span>レンタル/アクセス</span>
+      </a>
+    </li>
+
+    <li role="none">
+      <a role="menuitem"
+         href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/News/news.html"
+         class="mobile-item">
+        <img class="mobile-item__icon" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン４　白.svg" alt="" aria-hidden="true">
+        <span>ニュース</span>
+      </a>
+    </li>
+
+    <li role="none">
+      <a role="menuitem"
+         href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/フード/food.html"
+         class="mobile-item">
+        <img class="mobile-item__icon" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン６　白.svg" alt="" aria-hidden="true">
+        <span>フード</span>
+      </a>
+    </li>
+    
+    <li role="none">
+      <a role="menuitem"
+         href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/ご宿泊/hotel.html"
+         class="mobile-item">
+        <img class="mobile-item__icon" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン７　白.svg" alt="" aria-hidden="true">
+        <span>ご宿泊</span>
+      </a>
+    </li>
+
+    <li role="none">
+      <a role="menuitem"
+         href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/Contact/contact.html"
+         class="mobile-item">
+        <img class="mobile-item__icon" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン５白.svg" alt="" aria-hidden="true">
+        <span>お問い合わせ</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+ <main class="main-content">
+  <!-- サイトタイトル -->
+<section class="title-section section">
+  <h1>営業・運行状況</h1>
+  <p class="last-updated">最終更新: <span id="last-update-time">--:--</span></p>
+</section>
+
+
+  <!-- 緊急情報 -->
+<section class="emergency-status section">
+  <div class="status-card">
+    <div class="emergency-head">緊急情報</div>
+    <p class="emergency-text">今のところはありません</p>
+  </div>
+</section>
+
+
+  <!-- 営業状況 & 運行状況：横並び -->
+<div class="status-row section">
+  <!-- 営業状況 -->
+  <section class="business-status">
+    <div class="status-card">
+      <h2>スキー場営業状況</h2>
+      <div class="status-content">
+        <span class="status-badge" id="business-status">営業中</span>
+        <p class="status-time" id="business-time">8:00 - 21:00</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 運行状況 -->
+  <section class="operation-status">
+    <div class="status-card">
+      <h2>リフト・ゴンドラ運行状況</h2>
+      <div class="status-content">
+        <div class="status-indicator" id="operation-indicator"></div>
+        <div class="status-text">
+          <h3 id="operation-title">異常なし</h3>
+          <p id="operation-details">現在、正常に運行しております。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+  <!-- ゲレンデ運行状況 -->
+<section class="slope-status section">
+  <div class="status-card">
+    <h2>ゲレンデ運行状況</h2>
+      <div class="slope-grid">
+        <div class="slope-item">
+          <div class="slope-name">コースA</div>
+          <span class="chip chip-open">運行中</span>
+        </div>
+        <div class="slope-item">
+          <div class="slope-name">コースB</div>
+          <span class="chip chip-open">運行中</span>
+        </div>
+        <div class="slope-item">
+          <div class="slope-name">コースC</div>
+          <span class="chip chip-stop">休止中</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 本日の天気情報 -->
+<section class="weather-status section">
+  <div class="status-card">
+      <h2>本日の天気情報</h2>
+      <div class="weather-grid">
+        <div class="weather-col">
+          <div class="weather-label">天気</div>
+          <div class="icon-sunny" aria-label="晴れ"></div>
+          <div class="weather-value small">晴れ</div>
+        </div>
+        <div class="weather-col">
+          <div class="weather-label">気温</div>
+          <div class="weather-value">13℃</div>
+        </div>
+        <div class="weather-col">
+          <div class="weather-label">風速</div>
+          <div class="weather-value">8m/s</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+
+    <footer class="footer">
+
+        <footer class="footer">
+    <div class="footer-sns">
+      <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/SNS一覧/SNS.html" class="sns-btn">SNS一覧</a>
+    </div>
+
+  <!-- ② プライバシーポリシー / 利用規約 -->
+  <div class="footer-links">
+    <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/利用規約/terms.html">利用規約</a> |
+    <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー尾花沢スキーWEBサイト/Front/プライバシーポリシー/privacy-policy.html">プライバシーポリシー</a>
+  </div>
+
+  <!-- ③ コピーライト -->
+  <div class="footer-copy">
+    <p>© 2025 尾花沢市 All Rights Reserved.</p>
+  </div>
+</footer>
+
+
+    <script src="situation.js"></script>
+</body>
+</html>

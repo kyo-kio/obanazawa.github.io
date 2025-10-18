@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ご宿泊 | NAQT</title>
+  <link rel="stylesheet" href="hotel.css" />
+</head>
+<body>
+
+<!-- Header -->
+<header id="header" class="header" role="banner">
+  <div class="header-container">
+    <div class="header-content">
+      <!-- Logo -->
+      <div class="logo">AKKO</div>
+
+      <!-- Navigation Menu -->
+      <nav class="nav" aria-label="main">
+        <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/home/ホーム.html" class="nav-item" data-page="home">
+          <span class="nav-icon-box">
+            <!-- 黒アイコンのみ -->
+            <img class="nav-icon icon--dark" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン１ 黒.svg" width="20" height="20" alt="" aria-hidden="true">
+          </span>
+          <span>ホーム</span>
+        </a>
+
+        <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/コース　料金/courses-pricing.html" class="nav-item" data-page="courses">
+          <span class="nav-icon-box">
+            <img class="nav-icon icon--dark" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン２　黒.svg" width="20" height="20" alt="" aria-hidden="true">
+          </span>
+          <span>コース/料金</span>
+        </a>
+
+        <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/Access/access.html" class="nav-item" data-page="access">
+          <span class="nav-icon-box">
+            <img class="nav-icon icon--dark" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン３　黒.svg" width="20" height="20" alt="" aria-hidden="true">
+          </span>
+          <span>レンタル/アクセス</span>
+        </a>
+
+        <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/News/news.html" class="nav-item" data-page="news">
+          <span class="nav-icon-box">
+            <img class="nav-icon icon--dark" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン４　黒.svg" width="20" height="20" alt="" aria-hidden="true">
+          </span>
+          <span>ニュース</span>
+        </a>
+
+            <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/フード/food.html" class="nav-item" data-page="food">
+    <span class="nav-icon-box">
+      <img class="nav-icon icon--light" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン６　白.svg" width="20" height="20" alt="" aria-hidden="true">
+      <img class="nav-icon icon--dark"  src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン６　黒.svg" width="20" height="20" alt="" aria-hidden="true">
+    </span>
+    <span>フード</span>
+  </a>
+
+    <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/ご宿泊/hotel.html" class="nav-item" data-page="hotel">
+    <span class="nav-icon-box">
+      <img class="nav-icon icon--light" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン７　白.svg" width="20" height="20" alt="" aria-hidden="true">
+      <img class="nav-icon icon--dark"  src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン7　黒.svg" width="20" height="20" alt="" aria-hidden="true">
+    </span>
+    <span>ご宿泊</span>
+  </a>
+
+        <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/Contact/contact.html" class="nav-item" data-page="contact">
+          <span class="nav-icon-box">
+            <img class="nav-icon icon--dark" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン５　黒.svg" width="20" height="20" alt="" aria-hidden="true">
+          </span>
+          <span>お問い合わせ</span>
+        </a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <!-- Language -->
+      <div class="lang-dropdown" id="langDropdown">
+        <button class="btn btn-outline lang-btn" id="langBtn"
+                aria-haspopup="listbox" aria-expanded="false">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M5 8l6 6 6-6"/>
+          </svg>
+          <span class="lang-current" data-lang="ja">日本語</span>
+        </button>
+
+        <!-- ボタン直下に出るメニュー（幅=ボタン幅） -->
+        <ul class="lang-menu" id="langMenu" role="listbox" aria-label="Language">
+          <li role="option" aria-selected="true">
+            <a href="?lang=ja" data-lang="ja" class="lang-item is-active">日本語</a>
+          </li>
+          <li role="option" aria-selected="false">
+            <a href="?lang=en" data-lang="en" class="lang-item">English</a>
+          </li>
+          <li role="option" aria-selected="false">
+            <a href="?lang=zh" data-lang="zh" class="lang-item">中文</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 営業・運行状況（常時緑・URL必須のためリンク化） -->
+      <a class="btn btn-primary"
+         href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/営業・運行状況/situation.html">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/>
+        </svg>
+        営業・運行状況
+      </a>
+
+      <button class="hamburger-btn" id="hamburgerBtn" aria-controls="mobileMenu" aria-expanded="false" aria-label="メニュー">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile full-screen menu -->
+<nav id="mobileMenu" class="mobile-menu" aria-hidden="true">
+  <button class="mobile-menu__close" id="mobileMenuClose" aria-label="閉じる">
+    <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+      <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <ul class="mobile-menu__list" role="menu" aria-label="Main">
+    <li role="none">
+      <a role="menuitem"
+         href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/home/ホーム.html"
+         class="mobile-item">
+        <img class="mobile-item__icon" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン１　白.svg" alt="" aria-hidden="true">
+        <span>ホーム</span>
+      </a>
+    </li>
+
+    <li role="none">
+      <a role="menuitem"
+         href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/コース　料金/courses-pricing.html"
+         class="mobile-item">
+        <img class="mobile-item__icon" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン２　白.svg" alt="" aria-hidden="true">
+        <span>コース/料金</span>
+      </a>
+    </li>
+
+    <li role="none">
+      <a role="menuitem"
+         href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/Access/access.html"
+         class="mobile-item">
+        <img class="mobile-item__icon" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン３　白.svg" alt="" aria-hidden="true">
+        <span>レンタル/アクセス</span>
+      </a>
+    </li>
+
+    <li role="none">
+      <a role="menuitem"
+         href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/News/news.html"
+         class="mobile-item">
+        <img class="mobile-item__icon" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン４　白.svg" alt="" aria-hidden="true">
+        <span>ニュース</span>
+      </a>
+    </li>
+
+    <li role="none">
+      <a role="menuitem"
+         href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/フード/food.html"
+         class="mobile-item">
+        <img class="mobile-item__icon" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン６　白.svg" alt="" aria-hidden="true">
+        <span>フード</span>
+      </a>
+    </li>
+    
+    <li role="none">
+      <a role="menuitem"
+         href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/ご宿泊/hotel.html"
+         class="mobile-item">
+        <img class="mobile-item__icon" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン７　白.svg" alt="" aria-hidden="true">
+        <span>ご宿泊</span>
+      </a>
+    </li>
+
+    <li role="none">
+      <a role="menuitem"
+         href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/Contact/contact.html"
+         class="mobile-item">
+        <img class="mobile-item__icon" src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/アイコン/アイコン５白.svg" alt="" aria-hidden="true">
+        <span>お問い合わせ</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+  <!-- ====== ページ固有：ヒーロー（id="hero" を付与） ====== -->
+    <!-- Hero Section -->
+    <section class="page-hero">
+      <div>
+        <h1 class="page-title">ご宿泊</h1>
+        <p class="page-subtitle">山の自然に囲まれた、快適で心安らぐ滞在空間</p>
+      </div>
+    </section>
+
+  <main class="container">
+    <h2 class="section-title">周辺の宿一覧</h2>
+
+    <div class="rooms-list">
+      <!-- 宿1 -->
+      <div class="room-card">
+        <div class="room-image">
+      <img src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/その他/花笠高原荘.webp" alt="部屋の写真">
+      </div>
+        <div class="room-content">
+          <h3 class="room-title">くつろぎの宿 花笠高原荘</h3>
+          <p class="room-description">
+          雄大な自然に囲まれのんびりゆったり、大正ロマン漂う銀山温泉に一番近い宿。 東北有数の薬湯風呂あり。様々な集いの場となってる
+          </p>
+          <div class="room-info-list">
+            <div class="info-row">
+              <span class="info-label">住所</span>
+              <span class="info-value">〒999-4443 山形県尾花沢市大字鶴子1300-27</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">電話番号</span>
+              <span class="info-value">TEL:0237-28-2121</span>
+            </div>
+          </div>
+          <div class="price-section">
+            <span class="price-label">一泊（朝食付）<br>一人単価</span>
+            <span class="price-amount">8,000円～</span>
+          </div>
+          <div class="room-footer">
+            <div class="capacity-buttons">
+              <button class="capacity-btn">東北有数の薬湯</button>
+              <button class="capacity-btn">和室</button>
+              <button class="capacity-btn">和洋室</button>
+            </div>
+            <a href="https://goshozan.net/hanagasakougensou/" class="site-link">サイトへ >></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 宿2 -->
+      <div class="room-card">
+        <div class="room-image">
+      <img src="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/その他/ログハウス.jfif" alt="部屋の写真">
+      </div>
+        <div class="room-content">
+          <h3 class="room-title">花笠高原ログハウス</h3>
+          <p class="room-description">
+            県内産の杉の木の皮を手作業でむき贅沢に組んだログハウス。目の前に広がる花笠高原スキー場、高原の高台にあり、家族や気の合う仲間と思いっきり自然を満喫できます。
+            夏は野外でのバーベキュー、秋は芋煮、そして、冬は白銀のゲレンデへ直行。
+          </p>
+          <div class="room-info-list">
+            <div class="info-row">
+              <span class="info-label">住所</span>
+              <span class="info-value">〒999-4443 山形県尾花沢市大字鶴子1300-27</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">電話番号</span>
+              <span class="info-value">TEL:0237-28-2121</span>
+            </div>
+          </div>
+          <div class="price-section">
+            <span class="price-label">ご利用分より</span>
+            <span class="price-amount">16,000円</span>
+          </div>
+          <div class="room-footer">
+            <div class="capacity-buttons">
+              <button class="capacity-btn">一棟</button>
+              <button class="capacity-btn">貸し切り</button>
+              <button class="capacity-btn">プライベート</button>
+            </div>
+            <a href="https://goshozan.net/hanagasakougensou/hanagakougen-loghouse/#:~:text=%E3%83%9A%E3%83%83%E3%83%88%E3%81%A8%E6%B3%8A%E3%81%BE%E3%82%8C%E3%82%8B%E3%83%AD%E3%82%B0%E3%83%8F%E3%82%A6%E3%82%B9%20*%20%E3%83%9A%E3%83%83%E3%83%88%E3%81%A8%E6%B3%8A%E3%81%BE%E3%82%8C%E3%82%8B%E3%83%AD%E3%82%B0%E3%83%8F%E3%82%A6%E3%82%B9%20*%20%E7%9C%8C%E5%86%85%E7%94%A3%E3%81%AE%E6%9D%89%E3%81%AE%E6%9C%A8%E3%81%AE%E7%9A%AE%E3%82%92%E6%89%8B%E4%BD%9C%E6%A5%AD%E3%81%A7%E3%82%80%E3%81%8D%E8%B4%85%E6%B2%A2%E3%81%AB%E7%B5%84%E3%82%93%E3%81%A0%E3%83%AD%E3%82%B0%E3%83%8F%E3%82%A6%E3%82%B9%E3%80%82%20%E7%9B%AE%E3%81%AE%E5%89%8D%E3%81%AB%E5%BA%83%E3%81%8C%E3%82%8B%E8%8A%B1%E7%AC%A0%E9%AB%98%E5%8E%9F%E3%82%B9%E3%82%AD%E3%83%BC%E5%A0%B4%E3%80%81%E9%AB%98%E5%8E%9F%E3%81%AE%E9%AB%98%E5%8F%B0%E3%81%AB%E3%81%82%E3%82%8A%E3%80%81%E5%AE%B6%E6%97%8F%E3%82%84%E6%B0%97%E3%81%AE%E5%90%88%E3%81%86%E4%BB%B2%E9%96%93%E3%81%A8%E6%80%9D%E3%81%84%E3%81%A3%E3%81%8D%E3%82%8A%E8%87%AA%E7%84%B6%E3%82%92%E6%BA%80%E5%96%AB%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%99%E3%80%82%20%E5%86%B7%E6%9A%96%E6%88%BF%E5%AE%8C%E5%82%99%E3%80%81%E3%83%90%E3%82%B9%E3%80%81%E3%83%88%E3%82%A4%E3%83%AC%E4%BB%98%E3%81%8D%E3%81%A7%E5%86%B7%E8%94%B5%E5%BA%AB%E3%82%84%E3%83%99%E3%83%83%E3%83%89%E3%80%81%E9%A3%9F%E5%99%A8%E9%A1%9E%E3%81%BE%E3%81%A7%E6%8F%83%E3%81%A3%E3%81%A6%E3%81%8A%E3%82%8A%E3%80%81%E4%BB%B2%E9%96%93%E3%81%A7%E3%83%AF%E3%82%A4%E3%83%AF%E3%82%A4%E5%AE%B6%E6%97%8F%E3%81%A7%E3%81%AE%E3%82%93%E3%81%B3%E3%82%8A%E3%80%81%E6%80%9D%E3%81%84%E6%80%9D%E3%81%84%E3%81%AE%E9%AB%98%E5%8E%9F%E3%83%AA%E3%82%BE%E3%83%BC%E3%83%88%E3%81%AE%E3%82%A6%E3%83%83%E3%83%87%E3%82%A3%E3%83%A9%E3%82%A4%E3%83%95%E3%82%92%E6%A5%BD%E3%81%97%E3%82%81%E3%81%BE%E3%81%99%E3%80%82,55%2C000%E5%86%86%20%EF%BC%88%E7%A8%8E%E8%BE%BC%EF%BC%89%20%EF%BC%88%E6%B0%B4%E9%81%93%E6%96%99%E9%87%91%E3%80%81%E9%9B%BB%E6%B0%97%E6%96%99%E9%87%91%E3%80%81%E7%81%AF%E6%B2%B9%E6%96%99%E9%87%91%E3%81%AF%E3%80%81%E5%88%A5%E9%80%94%E3%81%AB%E3%81%AA%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82%EF%BC%89%20*%20%E4%BA%88%E7%B4%84&%E3%81%8A%E5%95%8F%E5%90%88%E3%81%9B%20%E3%81%8F%E3%81%A4%E3%82%8D%E3%81%8E%E3%81%AE%E5%AE%BF%E8%8A%B1%E7%AC%A0%E9%AB%98%E5%8E%9F%E8%8D%98%20TEL%EF%BC%9A0237%2D28%2D2121." class="site-link">サイトへ >></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ▼ フッター（提供のマークアップ反映） -->
+  <footer class="footer">
+    <div class="footer-sns">
+      <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/SNS一覧/SNS.html" class="sns-btn">SNS一覧</a>
+    </div>
+
+    <div class="footer-links">
+      <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/利用規約/terms.html">利用規約</a> |
+      <a href="/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/プライバシーポリシー/privacy-policy.html">プライバシーポリシー</a>
+    </div>
+
+    <div class="footer-copy">
+      <p>© 2025 尾花沢市 All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="hotel.js"></script>
+</body>
+</html>

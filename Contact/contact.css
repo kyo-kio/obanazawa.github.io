@@ -1,0 +1,836 @@
+/* CSS Variables */
+:root {
+  /* Colors - HSL format */
+  --primary: 142 76% 36%;
+  --primary-glow: 142 68% 45%;
+  --purple: 258 90% 66%;
+  --purple-deep: 258 90% 50%;
+  --sky-light: 197 71% 73%;
+  --mountain-light: 142 33% 82%;
+  --foreground: 222 84% 5%;
+  --background: 0 0% 100%;
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 16% 47%;
+  --accent: 197 71% 73%;
+  --accent-foreground: 222 84% 5%;
+  --border: 214 32% 91%;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+  --gradient-purple: linear-gradient(135deg, hsl(var(--purple)), hsl(var(--purple-deep)));
+  --gradient-sky: linear-gradient(180deg, hsl(var(--sky-light)), hsl(var(--mountain-light)));
+
+  /* Shadows */
+  --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+  --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
+  --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  /* Transitions */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: hsl(var(--foreground));
+  background: hsl(var(--background));
+}
+
+/* Header */
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1;
+  transition: var(--transition-smooth);
+  background: transparent;               /* スクロール前：透明のまま */
+}
+
+/* === Header menu: never wrap labels (JP/CJK safe) === */
+.header .logo,
+.header .nav-item,
+.header .nav-item span,
+.header-actions .btn,
+.header .lang-current {
+  white-space: nowrap;
+  word-break: keep-all;                   /* 日本語/中国語などでも自動改行させない */
+}
+.nav, .header-actions { flex-wrap: nowrap; }
+.nav-item { flex: 0 0 auto; min-width: max-content; }
+.header-actions .btn { flex: 0 0 auto; min-width: max-content; }
+
+.header.scrolled {
+  background: rgba(255, 255, 255, 0.95); /* スクロール後：白＋ブラー */
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-card);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+/* ▼ ロゴは常時黒 */
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: hsl(var(--foreground));          /* 常時：黒 */
+  transition: var(--transition-smooth);
+}
+.header.scrolled .logo { color: hsl(var(--foreground)); }  /* 明示的に維持 */
+
+/* ====== Nav ====== */
+.nav {
+  display: none;
+  align-items: center;
+  gap: 2rem;
+}
+@media (min-width: 768px) {
+  .nav { display: flex; }
+}
+
+/* ▼ ナビ文言は常時黒 */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: hsl(var(--foreground));          /* 常時：黒 */
+  transition: var(--transition-smooth);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.nav-item:hover { color: hsl(var(--accent)); }
+.header.scrolled .nav-item { color: hsl(var(--foreground)); } /* 明示的に維持 */
+
+/* アイコン */
+.nav-icon { width: 1.25rem; height: 1.25rem; }
+.nav-icon-box { display: inline-grid; place-items: center; }
+
+/* ▼ 画像アイコンは常時「黒」を表示、白は非表示 */
+.nav-item .icon--light { display: none !important; }
+.nav-item .icon--dark  { display: inline-block !important; }
+
+/* ====== Header actions ====== */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Buttons (共通) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.42rem;
+  border: none;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  text-decoration: none;
+}
+.btn-icon { width: 1rem; height: 1rem; }
+
+/* ▼ 言語ボタン（アウトライン）も常時“黒テキスト＋薄い枠”に統一 */
+.btn-outline {
+  border: 2px solid hsl(var(--border));
+  color: hsl(var(--foreground));
+  background: transparent;
+}
+.btn-outline:hover {
+  background: hsl(var(--accent) / 0.08);
+  border-color: hsl(var(--border));
+  color: hsl(var(--foreground));
+}
+/* スクロール後も状態は同じ */
+.header.scrolled .btn-outline { 
+  border-color: hsl(var(--border)); 
+  color: hsl(var(--foreground)); 
+}
+
+/* ▼ 「営業・運行状況」ボタンは常時“緑” */
+.btn-primary {
+  background: hsl(var(--primary));        /* 常時：緑 */
+  color: #fff;
+  border: 1px solid hsl(var(--primary));
+  text-align: center;
+}
+.btn-primary:hover {
+  background: hsl(var(--primary) / 0.9);
+}
+/* スクロール後も同じ色を維持 */
+.header.scrolled .btn-primary {
+  background: hsl(var(--primary));
+  color: #fff;
+}
+/* 750px以下で「営業・運行状況」ボタンだけに適用 */
+@media (max-width: 750px) {
+  a.btn.btn-primary[href$="#status"] {
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+}
+@media (min-width: 750px) {
+  .btn-primary {
+    padding: 0.5rem 1rem !important;
+  }
+}
+
+/* ==== Header layout tweaks ==== */
+
+/* ボタンの共通幅（必要なら数値だけ変えてOK） */
+:root{
+  --hdr-btn-w: 160px;
+}
+
+/* ヘッダー内の3カラム：左=ロゴ / 中央=アイコンメニュー / 右=アクション */
+.header-content{
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  column-gap: 40px; /* お好みで調整 */
+}
+
+/* アイコンメニュー（.nav）を左寄せに配置 */
+.nav{
+  justify-self: auto;
+  display: flex;
+  align-items: center;
+  gap: 33px;                 
+  margin: 0;                 
+  margin-left: 50px;         
+  flex-wrap: nowrap;         
+}
+
+/* no-wrap labels */
+.nav-item, .nav-item span{ white-space: nowrap; }
+
+/* 右端寄せのアクション領域（Language / 運行状況） */
+.header-actions{
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 50px; /* 2ボタンの間隔 */
+}
+
+/* 2ボタンの幅を近づける（=そろえる） */
+.header-actions .btn{
+  width: var(--hdr-btn-w);
+  justify-content: center;
+}
+
+/* Language ドロップダウンのボタン幅も合わせる */
+.lang-dropdown{ width: var(--hdr-btn-w); }
+.lang-btn{ width: 100%; }   /* .lang-dropdown 内のボタンを親幅にフィット */
+.lang-menu{ width: 100%; }  /* ドロップメニューは“ボタン幅”のまま */
+
+/* （任意）狭い画面で窮屈な場合の縮小ブレークポイント */
+@media (max-width: 390px){
+  :root{ --hdr-btn-w: 140px; }
+}
+
+/* === Mobile menu base === */
+.mobile-menu{
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.8);          /* 黒・80% */
+  z-index: 2000;
+  opacity: 0; visibility: hidden;
+  transform: translateX(10%);          /* 右→左へ出てくる感じ */
+  transition: opacity .2s ease, transform .2s ease, visibility 0s linear .2s;
+  display: flex; flex-direction: column;
+}
+.mobile-menu.is-open{
+  opacity: 1; visibility: visible;
+  transform: translateX(0);
+  transition: opacity .2s ease, transform .2s ease, visibility 0s;
+}
+
+/* 閉じるボタン（右上） */
+.mobile-menu__close{
+  position: absolute; top: 12px; right: 12px;
+  background: transparent; border: 0; color: #fff; padding: 8px; cursor: pointer;
+}
+
+/* 縦並び・白アイコン＋白文字（横並びのレイアウトは維持） */
+.mobile-menu__list{
+  list-style: none; margin: 72px 20px 24px; padding: 0;
+  display: grid; gap: 16px;
+}
+/* Defensive: hide list unless overlay is open */
+.mobile-menu:not(.is-open) .mobile-menu__list { display: none; }
+
+.mobile-item{
+  display: flex; align-items: center; gap: 12px;
+  color: #fff; text-decoration: none; font-weight: 700; font-size: 16px;
+  padding: 12px 8px; border-radius: 12px;
+}
+.mobile-item:hover{ background: rgba(255,255,255,.08); }
+.mobile-item__icon{ width: 22px; height: 22px; color: #fff; }
+
+/* ハンバーガーボタン（PCでは非表示） */
+.hamburger-btn{
+  display: none;
+  background: transparent; 
+  border: 1px solid rgba(255,255,255,.4);
+  color: currentColor; border-radius: 10px; padding: 8px 10px; cursor: pointer;
+}
+
+/* モバイル：中央ナビ非表示＋ハンバーガー表示 */
+@media (max-width: 1024px){
+  .nav{ display: none !important; }
+  .header-actions{ justify-self: end; display: flex; gap: 10px; }
+  .hamburger-btn{ display: inline-flex; align-items: center; }
+}
+
+/* ▼ 言語ドロップ専用（既存スタイルは変更しない） */
+.lang-dropdown{ position: relative; display: inline-block; }
+.lang-btn{ display:inline-flex; align-items:center; gap:.5rem; }
+
+/* 開閉アニメ＆レイヤー。メニュー幅=ボタン（親）幅 */
+.lang-menu{
+  position:absolute; left:0; top:calc(100% + 8px);
+  width:100%;
+  background:#fff; color:#111;
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:12px; box-shadow:0 10px 24px rgba(0,0,0,.15);
+  overflow:hidden;
+  opacity:0; transform:translateY(-4px);
+  pointer-events:none;
+  transition:opacity .15s ease, transform .15s ease;
+  z-index:1100; /* ヘッダーより上に */
+}
+.lang-dropdown.open .lang-menu{
+  opacity:1; transform:translateY(0); pointer-events:auto;
+}
+.lang-item{
+  display:block; width:100%;
+  padding:10px 12px;
+  color:#111; text-decoration:none;
+}
+.lang-item:hover, .lang-item:focus{ background:#f2f5ff; outline:none; }
+.lang-item.is-active{ background:#2563eb; color:#fff; }
+.lang-dropdown.open .btn-icon{ transform:rotate(180deg); transition:transform .15s ease; }
+
+/* ================================================
+   1350px 以下：ヘッダーを詰めてコンパクト表示
+   （1024px以下は既存どおりハンバーガーに切替）
+   ================================================ */
+@media (max-width: 1350px) and (min-width: 1025px){
+
+  /* 余白を詰める */
+  .header-container{ padding: 0 1rem; }
+  .header-content{ padding: .75rem 0; column-gap: 20px; }
+
+  /* ロゴ少し縮小 */
+  .header .logo{ font-size: 1.25rem; }
+
+  /* ナビの詰め */
+  .nav{
+    gap: 18px;          /* 33px → 18px */
+    margin-left: 20px;  /* 50px → 20px */
+  }
+
+  /* ナビ文言とアイコンを少しコンパクトに */
+  .nav-item{ font-size: .82rem; gap: .4rem; }
+  .nav-icon{ width: 1.05rem; height: 1.05rem; } /* 16.8px相当 */
+
+  /* 右側アクション（言語/運行状況）も詰める */
+  .header-actions{ gap: 16px; }
+
+  /* 共通ボタンの内側余白を少しだけ減らす */
+  .btn{ padding: .45rem .6rem; }
+
+  /* 可変幅にしてはみ出しにくくする — きっちり揃えたいならコメントアウト */
+  :root{ --hdr-btn-w: 148px; }
+  .header-actions .btn{ width: auto; min-width: 132px; }
+
+  /* Language ドロップの幅も可変寄りに */
+  .lang-dropdown{ width: auto; min-width: 132px; }
+  .lang-menu{ width: 100%; }  /* ボタン幅に追従 */
+
+  /* さらに狭まった時の最終調整（任意） */
+  @media (max-width: 1180px){
+    .nav{ gap: 14px; }
+    .nav-item{ font-size: .78rem; }
+    .nav-icon{ width: 1rem; height: 1rem; }
+    .header-actions .btn,
+    .lang-dropdown{ min-width: 120px; }
+  }
+}
+
+/* スマホサイズ（540px以下）のとき */
+@media screen and (max-width: 540px) {
+  /* ロゴ */
+  .header .logo {
+    font-size: 20px;   /* 通常より少し小さめ */
+  }
+
+  /* 言語切替ボタン */
+  .lang-dropdown {
+    font-size: 0.9rem;   /* テキストサイズを少し小さく */
+    padding: 6px 12px;   /* ボタンの余白も少し縮める */
+  }
+
+  /* 営業・運行状況ボタン */
+  .btn btn-primary{
+    font-size: 0.9rem;
+    padding: 6px 14px;
+  }
+
+  /* ハンバーガーメニュー */
+  .hamburger-btn {
+    width: 39px;     /* アイコンの幅を少し小さめ */
+    height: 39px;    /* 高さも小さめ */
+  }
+
+  /* アイコン（例：FontAwesomeやSVG）を使っている場合 */
+  .header i,
+  .header svg {
+    font-size: 24px; /* アイコンサイズを少し縮小 */
+  }
+  .header-content{
+    column-gap: 10px !important;
+  }
+}
+
+@media (max-width: 750px) {
+    a.btn.btn-primary {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.75rem;
+        line-height: 1.5;
+        gap: 0.35rem;
+    }
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Main Content */
+.contact-main {
+  margin-top: 80px;
+  background: hsl(var(--background));
+}
+/* Hero Section */
+    .page-hero {
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+              /* 背景画像を指定 */
+  background-image: url("/Users/user/Downloads/Suki%20degin%20-%20コピー/尾花沢スキーWEBサイト/Front/image/その他/仮お問い合わせ画像.jpg");
+
+  /* 背景をきれいに表示する設定 */
+  background-size: cover;      /* 画面いっぱいに広げる */
+  background-position: center; /* 中央に配置 */
+  background-repeat: no-repeat;/* 繰り返さない */
+    }
+
+    .page-title {
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+
+    .page-subtitle {
+      font-size: 20px;
+      opacity: 0.9;
+    }
+
+    @media (max-width: 540px) {
+    .page-hero {
+     margin-top: 70px !important;
+    }
+}
+
+/* Page Hero */
+.page-hero {
+  position: relative;
+  height: 60vh;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: 160px;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+}
+
+.hero-content {
+  text-align: center;
+  color: white;
+  z-index: 10;
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  letter-spacing: 0.1em;
+}
+
+.page-subtitle {
+  font-size: 1.25rem;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2.5rem;
+  }
+  .page-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* Contact Content */
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .contact-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: hsl(var(--foreground));
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid hsl(var(--primary));
+}
+
+/* Contact Info */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid hsl(var(--border));
+  transition: var(--transition-smooth);
+}
+
+.contact-card:hover {
+  box-shadow: var(--shadow-elegant);
+  transform: translateY(-2px);
+}
+
+.contact-card-title {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: hsl(var(--primary));
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.facility-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: hsl(var(--foreground));
+}
+
+.address {
+  color: hsl(var(--muted-foreground));
+  font-size: 0.875rem;
+}
+
+.phone {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 500;
+}
+
+.phone a {
+  color: hsl(var(--primary));
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.phone a:hover {
+  color: hsl(var(--primary-glow));
+  text-decoration: underline;
+}
+
+.label {
+  font-weight: 600;
+  color: hsl(var(--foreground));
+}
+
+.separator {
+  margin: 0 0.5rem;
+  color: hsl(var(--muted-foreground));
+}
+
+.hours {
+  color: hsl(var(--muted-foreground));
+  font-size: 0.875rem;
+  font-style: italic;
+}
+
+/* Contact Form */
+.contact-form-section {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid hsl(var(--border));
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-weight: 600;
+  color: hsl(var(--foreground));
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.required {
+  color: #e53e3e;
+  font-weight: bold;
+}
+
+.form-input,
+.form-textarea {
+  padding: 0.75rem;
+  border: 2px solid hsl(var(--border));
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: var(--transition-smooth);
+  background: white;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 3px hsl(var(--primary) / 0.1);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-submit {
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: var(--shadow-elegant);
+}
+
+.form-submit:hover {
+  background: hsl(var(--primary-glow));
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
+
+.form-submit:active {
+  transform: translateY(0);
+}
+
+/* Form validation styles */
+.form-input.error,
+.form-textarea.error {
+  border-color: #e53e3e;
+  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
+}
+
+.error-message {
+  color: #e53e3e;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+/* Success message */
+.success-message {
+  background: #f0fff4;
+  border: 1px solid #38a169;
+  color: #2f855a;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .contact-main {
+    margin-top: 70px;
+    padding: 1rem 0 2rem;
+  }
+  
+  .contact-card {
+    padding: 1rem;
+  }
+  
+  .contact-form-section {
+    padding: 1.5rem;
+  }
+  
+  .phone {
+    flex-wrap: wrap;
+  }
+  
+  .separator {
+    margin: 0 0.25rem;
+  }
+}
+
+.footer {
+  background: #fff;             /* 背景は白 */
+  text-align: center;
+  padding: 30px 20px;
+  font-family: 'Noto Sans JP', sans-serif;
+  border-top: 1px solid #e0e0e0; /* 上に薄い仕切り線 */
+}
+
+/* SNSボタン */
+.footer-sns {
+  margin-bottom: 20px;
+}
+
+.footer-sns .sns-btn {
+  display: inline-block;
+  padding: 10px 40px;
+  border: 2px solid #000;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+  transition: all 0.3s ease;
+}
+
+.footer-sns .sns-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* リンク */
+.footer-links {
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+
+.footer-links a {
+  color: #000;
+  text-decoration: none;
+  margin: 0 5px;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #555;
+}
+
+/* コピーライト */
+.footer-copy {
+  font-size: 0.8rem;
+  color: #333;
+}
+
+
+html, body{
+  -ms-overflow-style: none;   /* IE/旧Edge */
+  scrollbar-width: none;      /* Firefox */
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  display: none;              /* Chrome/Safari/新Edge */
+}
+
+/* 任意：特定の要素だけ隠したい時用 */
+.scrollbar-none{
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar{
+  display: none;
+}
+.go-to-top{
+  display: flex;
+  justify-content: space-between;
+}
